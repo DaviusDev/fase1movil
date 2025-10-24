@@ -1,54 +1,76 @@
 import * as Haptics from "expo-haptics";
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
+import { router } from "expo-router";
 
-import { Alert, Image, ScrollView, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { HelloWave } from "@/components/HelloWave";
+
+import { Alert, Image, ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={styles.container}>
-        
-          <HelloWave />
-          <Text style={styles.title}>Bienvenido a Full Autos SAS</Text>
+        <HelloWave />
+        <Text style={styles.title}>Bienvenido a Full Autos SAS</Text>
 
         <Text style={styles.subtitle}>Tu serviteca de confianza</Text>
         <Text style={styles.text}>Ingresa como usuario por acá:</Text>
-        <TouchableOpacity style={styles.button} onPress={() => { Haptics.selectionAsync(); Alert.alert("Próximamente")}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            Haptics.selectionAsync();
+            Alert.alert("Próximamente");
+          }}
+        >
           <Text style={styles.buttonText}>Ingresar</Text>
         </TouchableOpacity>
         <Text style={styles.text}>¿Aún no tienes una cuenta? Regístrate: </Text>
-        <TouchableOpacity style={styles.button} onPress={() => { Haptics.selectionAsync(); Alert.alert("Próximamente")}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            Haptics.selectionAsync();
+            Alert.alert("Próximamente");
+          }}
+        >
           <Text style={styles.buttonText}>Registrarse</Text>
         </TouchableOpacity>
         <View style={{ marginTop: 20 }}>
-          <Text style={styles.title}>Estás interesado en hacer parte de nuestro equipo?</Text>
-          <Text style={styles.text}>Estamos activamente contratando personal para todas nuestras áreas.
-            Sí te encuentras interesado, no dudes en contactarnos a través de nuestro correo electrónico
-            O nuestra plataforma de aspirantes.
+          <Text style={styles.title}>
+            Estás interesado en hacer parte de nuestro equipo?
+          </Text>
+          <Text style={styles.text}>
+            Estamos activamente contratando personal para todas nuestras áreas.
+            Sí te encuentras interesado, no dudes en contactarnos a través de
+            nuestro correo electrónico O nuestra plataforma de aspirantes.
           </Text>
         </View>
-        <TouchableOpacity style={[styles.button, styles.button]} onPress={() => { Haptics.selectionAsync(); Alert.alert("Próximamente")}}>
-          <Text style={styles.buttonText}>Ver Vacantes</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("/jobs")}
+        >
+          <Text style={styles.buttonText}>Vacantes</Text>
         </TouchableOpacity>
-       
-          <Image source={require('@/assets/images/serviteca_2.png')} style={{ width: '100%', height: 200, marginTop: 20, borderRadius: 10 }}>
 
-
-          </Image>
-        
+        <Image
+          source={require("@/assets/images/serviteca_2.png")}
+          style={{
+            width: "100%",
+            height: 200,
+            marginTop: 20,
+            borderRadius: 10,
+          }}
+        ></Image>
       </ScrollView>
-      
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
@@ -60,32 +82,32 @@ const styles = StyleSheet.create({
     width: 290,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
   },
   container: {
-        padding: 20,
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
-    title: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        marginBottom: 24,
-        color: '#2c3e50',
-    },
-    subtitle: {
-        fontSize: 16,
-        fontWeight: 'normal',
-        marginBottom: 12,
-        color: '#34495e',
-    },
-    text: {
-        fontSize: 14,
-        fontWeight: 'normal',
-        marginBottom: 8,
-        color: '#7f8c8d',
-    },
-     button: {
+    padding: 20,
+    alignItems: "center",
+    backgroundColor: "#fff",
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 24,
+    color: "#2c3e50",
+  },
+  subtitle: {
+    fontSize: 16,
+    fontWeight: "normal",
+    marginBottom: 12,
+    color: "#34495e",
+  },
+  text: {
+    fontSize: 14,
+    fontWeight: "normal",
+    marginBottom: 8,
+    color: "#7f8c8d",
+  },
+  button: {
     backgroundColor: "#157784",
     paddingVertical: 12,
     paddingHorizontal: 20,
